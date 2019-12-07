@@ -1705,10 +1705,7 @@ namespace ObjCRuntime {
 		internal static T ThrowOnNull<T> (T obj, string name, string message = null) where T : class
 		{
 			if (obj == null) {
-				if (message == null)
-					throw new ArgumentNullException (name);
-				else
-					throw new ArgumentNullException (name, message);
+				throw new ArgumentNullException (name, message);
 			}
 			return obj;
 		}
