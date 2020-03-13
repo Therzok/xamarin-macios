@@ -731,7 +731,7 @@ namespace Foundation {
 			disposed = true;
 			
 			if (handle != IntPtr.Zero) {
-				if (disposing || (IsDirectBinding && !RequiresUIThread)) {
+				if (disposing || (Runtime.DisposeOnlyUIObjectsOnUIThread && IsDirectBinding && !RequiresUIThread)) {
 					ReleaseManagedRef ();
 				} else {
 					NSObject_Disposer.Add (this);
